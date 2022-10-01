@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-image: url(../public/bg.svg);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @apply bg-[#ffcce6] text-black dark:bg-[#202124] dark:text-[#bdc1c6]
+}
