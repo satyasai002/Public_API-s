@@ -39,7 +39,7 @@ export default function Home() {
     setSearchInput(searchValue.toLowerCase());
     if (searchInput !== "") {
       const filteredData = entries.filter((item) => {
-        return item.Description.toLowerCase().search(searchValue) != -1;;
+        return item.Description.toLowerCase().search(searchInput) != -1;;
       });
       setFilteredResults(filteredData);
     } else {
