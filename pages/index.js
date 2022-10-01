@@ -27,7 +27,6 @@ export default function Home() {
     const res = await axios.get("https://api.publicapis.org/entries");
     setEntries(res.data.entries);
     setLoading(true);
-    console.log(res.data.entries);
   };
   const getcat= async () =>{
     const res = await axios.get("https://api.publicapis.org/categories");
