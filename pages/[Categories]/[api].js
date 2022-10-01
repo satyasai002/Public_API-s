@@ -4,8 +4,9 @@ import axios from "axios";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Api from "../../components/Api";
+import {HiCubeTransparent} from 'react-icons/hi'
 
-function api(){
+function ApiData(){
     const router = useRouter();
     const api = router.query.api;
     const [data,setData] = useState([]);
@@ -38,8 +39,11 @@ function api(){
       <>
         <Nav categories={categories} loading={loading} />
         {!loading && (
-          <div className="hero h-screen container max-w-screen-lg mx-auto pb-10 flex justify-center">
-            <img className="" src="/loading.svg"></img>
+          <div className="hero h-screen container  max-w-screen-lg mx-auto pb-10 flex justify-center">
+            <HiCubeTransparent
+              className="animate-spin"
+              size={50}
+            ></HiCubeTransparent>
           </div>
         )}
         <div>{loading && <Api data={entry} loading={loading}></Api>}</div>
@@ -47,4 +51,4 @@ function api(){
       </>
     );
 }
-export default api;
+export default ApiData;

@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { useState,useEffect  } from 'react';
 import axios from 'axios';
 import react from 'react'
-import Api from "../components/Apis"
+import Apis from "../components/Apis"
 import Pagination from '../components/Pagination';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -66,7 +66,7 @@ export default function Home() {
       </div>
       {searchInput.length > 1 ? (
         <>
-          <Api entries={currentFilteredEntries} loading={loading} />
+          <Apis entries={currentFilteredEntries} loading={loading} />
           <Pagination
             entriesPerPage={entriesPerPage}
             totalEntries={filteredResults.length}
@@ -76,7 +76,7 @@ export default function Home() {
         </>
       ) : (
         <>
-          <Api entries={currentEntries} loading={loading} />
+          <Apis entries={currentEntries} loading={loading} />
           <Pagination
             entriesPerPage={entriesPerPage}
             totalEntries={entries.length}

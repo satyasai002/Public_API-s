@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import {useTheme} from 'next-themes';
-import { HiSun, HiMoon } from "react-icons/hi"; 
+import { HiSun, HiMoon, HiMenu, HiChevronRight } from "react-icons/hi"; 
 import SideBarLoading from "./SideBarLoading";
-import { Switch } from "@headlessui/react";
+import Link from "next/link";
 
 function Nav({categories, loading }) {
   const [isOpen,setIsOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState(categories);
-  const [enabled, setEnabled] = useState(false);
   const {systemTheme, theme , setTheme} = useTheme();
   const [mounted,setMounted] = useState(false);
 
@@ -24,7 +23,7 @@ function Nav({categories, loading }) {
         <HiSun size={30} role="button" onClick={()=>setTheme('light')}/>
       )
     } else{
-      return <HiMoon size={30} onClick={() => setTheme("dark")} />;
+      return <HiMoon size={30} role="button" onClick={() => setTheme("dark")} />;
     }
   }
   useEffect(() => {
@@ -44,19 +43,17 @@ function Nav({categories, loading }) {
   return (
     <>
       <div className="flex flex-wrap justify-between items-center mx-auto font-mono back  ">
-        <a
-          href="/"
-          className="text-3xl sm:text-5xl font-semi-bold p-4 cursor-pointer"
-        >
-          Public Api's
-        </a>
+        <Link href="/">
+          <a className="text-3xl sm:text-5xl font-semi-bold p-4 cursor-pointer">
+            Public Api's
+          </a>
+        </Link>
         <div className="flex right-0 md:text-2xl font-semi-bold cursor-pointer mx-8">
           <div className="hidden lg:flex ">
             <div className="flex my-2 p-2 px-4">{renderThemeChanger()}</div>
             {loading && (
               <>
-                <div className="rounded-lg bg-green-500 h-2 p-2 my-6 cursor-default">
-                </div>
+                <div className="rounded-lg bg-green-500 h-2 p-2 my-6 cursor-default"></div>
                 <p className="py-4 p-2 cursor-default">Status</p>
               </>
             )}
@@ -68,13 +65,12 @@ function Nav({categories, loading }) {
                 <p className="py-4 p-2 cursor-default">Status</p>
               </>
             )}
-
-            <a className="sm: p-4" href="/random">
-              Random-API
-            </a>
+            <Link href="/random">
+              <a className="sm: p-4">Random-API</a>
+            </Link>
           </div>
           <button className="p-4 " onClick={() => setIsOpen(!isOpen)}>
-            <img className="sm:w-[40px]" src="/menu.svg"></img>
+            <HiMenu size={35} role="button"></HiMenu>
           </button>
         </div>
       </div>
@@ -85,22 +81,21 @@ function Nav({categories, loading }) {
       >
         <div className="flex">
           <button onClick={() => setIsOpen(!isOpen)}>
-            <img
+            <HiChevronRight
+              size={35}
               className="sm:w-[40px] hover:shadow-lg rounded-md"
-              src="/X.svg"
-            ></img>
+            ></HiChevronRight>
           </button>
           <div className=" lg:hidden my-2 p-3">{renderThemeChanger()}</div>
         </div>
 
         <div className=" w-full flex h-screen justify-center">
           <div className=" flex flex-col scrollbar-hide overflow-y-auto items-center">
-            <a
-              className="p-2 m-2 lg:hidden font-mono bg-black text-white w-full text-center rounded-md hover:bg-white hover:text-black "
-              href="/random"
-            >
-              Random API
-            </a>
+            <Link href="/random">
+              <a className="p-2 m-2 lg:hidden font-mono bg-black text-white w-full text-center rounded-md hover:bg-white hover:text-black ">
+                Random API
+              </a>
+            </Link>
             <input
               onChange={(e) => searchItems(e.target.value)}
               className="my-3 p-2 bg-gray-200"
@@ -114,7 +109,9 @@ function Nav({categories, loading }) {
                     key={i}
                     className="p-2 hover:bg-gray-200 dark:hover:bg-black hover:font-medium w-full text-center rounded-md "
                   >
-                    <a href={`/${item}`}>{item}</a>
+                    <Link href={`/${item}`}>
+                      <a>{item}</a>
+                    </Link>
                   </div>
                 ))}
               <p className="m-8">Public-API's ™ | © 2022</p>

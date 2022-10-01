@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import {useEffect,useState} from 'react';
-import Api from "../../components/Apis";
+import Apis from "../../components/Apis";
 import Pagination from "../../components/Pagination";
 import Nav from "../../components/Nav";
 import axios from "axios";
@@ -51,7 +51,7 @@ function Categories() {
     <div className="h-full">
       <Nav categories={categories} loading={loading} />
       <p className="text-3xl m-3 font-mono text-center">{cat}-API's</p>
-      <Api entries={currentEntries} loading={loading} />
+      <Apis entries={currentEntries} loading={loading} />
       <Pagination
         entriesPerPage={entriesPerPage}
         totalEntries={entries.length}

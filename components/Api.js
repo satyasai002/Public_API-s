@@ -1,4 +1,4 @@
-import Loading from "./Loading";
+import Link from "next/link";
 function Api({data,loading}) {
     return (
       <div>
@@ -12,9 +12,9 @@ function Api({data,loading}) {
               </h1>
               <p className=" p-3">
                 <b>Link:</b>
-                <a className="text-[#08c] px-2" href={data.Link}>
-                  {data.Link}
-                </a>
+                <Link href={data.Link}>
+                  <a className="text-[#08c] px-2">{data.Link}</a>
+                </Link>
               </p>
               <h1 className=" p-3">
                 <b>Category:</b>

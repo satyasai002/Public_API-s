@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Api from "../components/Api";
+import {HiCubeTransparent} from 'react-icons/hi'
 
 function Random(){
     const [data,setData] = useState([]);
@@ -27,8 +28,11 @@ function Random(){
       <div>
         <Nav categories={categories} loading={loading} />
         {!loading && (
-          <div className="hero h-screen container max-w-screen-lg mx-auto pb-10 flex justify-center">
-              <img className="" src="/loading.svg"></img>
+          <div className="hero h-screen container  max-w-screen-lg mx-auto pb-10 flex justify-center">
+            <HiCubeTransparent
+              className="animate-spin"
+              size={50}
+            ></HiCubeTransparent>
           </div>
         )}
         <div>{loading && <Api data={data} loading={loading} />}</div>

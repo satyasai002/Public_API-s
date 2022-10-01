@@ -1,6 +1,7 @@
 import Loading from "./Loading";
+import Link from "next/link";
 
-function Api({ entries, loading }) {
+function Apis({ entries, loading }) {
   return (
     <>
       <div className="m-4 grid grid-cols-1 gap-y-0 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 ">
@@ -11,12 +12,11 @@ function Api({ entries, loading }) {
               key={i}
               className="card-back m-3 border-gray-300 shadow rounded-md hover:text-white hover:bg-black p-4"
             >
-              <a
-                className="text-md sm:text-xl md:text-xxl lg:text-3xl font-semibold"
-                href={`/${entry.Category}/${entry.API}`}
-              >
-                {entry.API}
-              </a>
+              <Link href={`/${entry.Category}/${entry.API}`}>
+                <a className="text-md sm:text-xl md:text-xxl lg:text-3xl font-semibold">
+                  {entry.API}
+                </a>
+              </Link>
               <p>{entry.Description}</p>
             </div>
           ))}
@@ -24,4 +24,4 @@ function Api({ entries, loading }) {
     </>
   );
 }
-export default Api;
+export default Apis;
