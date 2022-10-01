@@ -7,7 +7,7 @@ function Footer() {
         <button className="bg-black w-1/5 p-2 rounded-sm">Contact</button>
       </div>
       <p className="text-center p-4 text-light cursor-default">
-        Public-API's ™ | © 2022
+        Public-APIs ™ | © 2022
       </p>
     </div>
   );

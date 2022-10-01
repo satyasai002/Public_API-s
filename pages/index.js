@@ -62,7 +62,7 @@ export default function Home() {
           placeholder="Search..."
           onChange={(e) => searchItems(e.target.value)}
         />
-        <p className="font-mono text-3xl m-3">API's</p>
+        <p className="font-mono text-3xl m-3">APIs</p>
       </div>
       {searchInput.length > 1 ? (
         <>

@@ -50,7 +50,7 @@ function Categories() {
   return (
     <div className="h-full">
       <Nav categories={categories} loading={loading} />
-      <p className="text-3xl m-3 font-mono text-center">{cat}-API's</p>
+      <p className="text-3xl m-3 font-mono text-center">{cat}-APIs</p>
       <Apis entries={currentEntries} loading={loading} />
       <Pagination
         entriesPerPage={entriesPerPage}

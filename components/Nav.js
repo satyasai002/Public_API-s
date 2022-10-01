@@ -45,7 +45,7 @@ function Nav({categories, loading }) {
       <div className="flex flex-wrap justify-between items-center mx-auto font-mono back  ">
         <Link href="/">
           <a className="text-3xl sm:text-5xl font-semi-bold p-4 cursor-pointer">
-            Public Api's
+            Public Apis
           </a>
         </Link>
         <div className="flex right-0 md:text-2xl font-semi-bold cursor-pointer mx-8">
@@ -114,7 +114,7 @@ function Nav({categories, loading }) {
                     </Link>
                   </div>
                 ))}
-              <p className="m-8">Public-API's ™ | © 2022</p>
+              <p className="m-8">Public-APIs ™ | © 2022</p>
             </div>
           </div>
         </div>
