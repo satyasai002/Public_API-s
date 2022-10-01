@@ -33,7 +33,7 @@ function Nav({categories, loading }) {
     setSearchInput(searchValue.toLowerCase());
     if (searchInput !== "") {
       const filteredData = categories.filter((item) => {
-        return item.toLowerCase().search(searchValue) != -1;
+        return item.toLowerCase().search(searchInput) != -1;
       });
       setFilteredResults(filteredData);
     } else {
@@ -45,7 +45,7 @@ function Nav({categories, loading }) {
       <div className="flex flex-wrap justify-between items-center mx-auto font-mono back  ">
         <Link href="/">
           <a className="text-3xl sm:text-5xl font-semi-bold p-4 cursor-pointer">
-            Public Apis
+            Public APIs
           </a>
         </Link>
         <div className="flex right-0 md:text-2xl font-semi-bold cursor-pointer mx-8">
